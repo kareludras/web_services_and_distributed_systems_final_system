@@ -103,15 +103,15 @@ async function handleFormSubmit(event) {
 
 async function listiraamatud() {
     try {
-        const responseData = await getDataAsJson("http://localhost:5000/raamatud/");
+        const responseData = await getDataAsJson("https://hsraamatudapiudras.azurewebsites.net/raamatud/");
 
         const resultElement = document.getElementById("raamatud_result");
         resultElement.innerHTML = "";
 
         for (var raamat of responseData.raamatud) {
             const displayFilename = raamat.replace('.txt', '');
-            resultElement.innerHTML += '<a href="http://localhost:5000/raamatud/' + displayFilename + '" download="' + raamat + '" >' + displayFilename + "</a> " +
-                '<a href="#" onclick="deleteObject(\'http://localhost:5000/raamatud/' + displayFilename + '\')" > [kustuta]</a>' +
+            resultElement.innerHTML += '<a href="https://hsraamatudapiudras.azurewebsites.net/raamatud/' + displayFilename + '" download="' + raamat + '" >' + displayFilename + "</a> " +
+                '<a href="#" onclick="deleteObject(\'https://hsraamatudapiudras.azurewebsites.net/raamatud/' + displayFilename + '\')" > [kustuta]</a>' +
                 "<br />";
         }
     } catch (error) {
